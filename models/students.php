@@ -14,6 +14,14 @@ class StudentsModel extends Model{
       $q = "DELETE FROM students WHERE id = ".$_POST['delete'];
       $this->db_query($q);
     } 
+    public function getGroupFromDB(){
+        $q = "SELECT * FROM groups";
+        return $this->db_select_array($q);
+    }
+    public function updateStudent(){
+        $q = "UPDATE students SET name='".$_POST['name'][$_POST['update']]."', group_id='".$_POST['group_id'][$_POST['update']]."' WHERE id= ".$_POST['update'];
+        $this->db_query($q);
+    } 
 }
 
 ?>
