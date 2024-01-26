@@ -19,7 +19,7 @@ class StudentsModel extends Model{
         return $this->db_select_array($q);
     }
     public function updateStudent(){
-        $q = "UPDATE students SET name='".$_POST['name'][$_POST['update']]."', group_id='".$_POST['group_id'][$_POST['update']]."' WHERE id= ".$_POST['update'];
+        $q = "UPDATE students SET name='".$_POST['name']."', group_id='".$_POST['group_id']."' WHERE id= ".$_POST['update'];
         $this->db_query($q);
     } 
 }
