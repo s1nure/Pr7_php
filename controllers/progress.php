@@ -11,24 +11,27 @@ class ProgressController{
         if($url) header('Location: '.$url);
     }
 
-    public function index(){
-        $progress = $this->model->getProgressFromDB();
-        $students = $this->model->getStudents();
-        $subjects = $this->model->getSubjects();  
+    public function index(){ 
         include 'views/progress.php';
+    }
+    public function getData() {
+        $data['progress'] = $this->model->getProgressFromDB();
+        $data['students'] = $this->model->getStudents();
+        $data['subjects'] = $this->model->getSubjects();  
+         die(json_encode($data));
     }
 
     public function addProgress(){
         if($_POST['mark']){
             $this->model->addProgressToDB();
-            $this->redirect('/Pr8/index.php/progress');
+            die(json_encode(true));
         }
     }
     public function actions(){
       if($_POST['delete']) $this->model->deleteProgressFromDB();
       if($_POST['update']) $this->model->updateProgress();
 
-     $this->redirect('/Pr8/index.php/progress');
+            die(json_encode(true));
     }
 }
 

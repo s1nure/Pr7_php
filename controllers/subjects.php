@@ -12,21 +12,23 @@ class SubjectsController{
     }
 
     public function index(){
-        $subjects = $this->model->getSubjectsFromDB();
         include 'views/subjects.php';
     }
-
+    public function getData() {
+        $data['subjects'] = $this->model->getSubjectsFromDB();
+         die(json_encode($data));
+    }
     public function addSubject(){
         if($_POST['name']){
             $this->model->addSubjectsToDB();
-            $this->redirect('/Pr8/index.php/subjects');
+            die(json_encode(true));
         }
     }
     public function actions(){
       if($_POST['delete']) $this->model->deleteSubjectsFromDB();
       if($_POST['update']) $this->model->updateSubjects();
 
-     $this->redirect('/Pr8/index.php/subjects');
+            die(json_encode(true));
     }
 }
 

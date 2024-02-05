@@ -16,7 +16,7 @@ class SubjectsModel extends Model{
     } 
 
     public function updateSubjects(){
-        $q = "UPDATE subjects SET name='".$_POST['name'][$_POST['update']]."' WHERE id= ".$_POST['update'];
+        $q = "UPDATE subjects SET name='".$_POST['name']."' WHERE id= ".$_POST['update'];
         $this->db_query($q);
     } 
 }

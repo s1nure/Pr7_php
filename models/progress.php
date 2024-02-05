@@ -26,7 +26,7 @@ class ProgressModel extends Model{
     } 
 
     public function updateProgress(){
-        $q = "UPDATE progress SET mark='".$_POST['mark'][$_POST['update']]."', student_id='".$_POST['student_id'][$_POST['update']]."', subject_id='".$_POST['subject_id'][$_POST['update']]."' WHERE id= ".$_POST['update'];
+        $q = "UPDATE progress SET mark='".$_POST['mark']."', student_id='".$_POST['student_id']."', subject_id='".$_POST['subject_id']."' WHERE id= ".$_POST['update'];
         $this->db_query($q);
     } 
 }
