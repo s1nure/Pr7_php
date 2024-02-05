@@ -12,7 +12,7 @@ class ProgressController{
     }
 
     public function index(){ 
-        include 'views/progress.php';
+        include 'views/index.php';
     }
     public function getData() {
         $data['progress'] = $this->model->getProgressFromDB();

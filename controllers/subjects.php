@@ -12,7 +12,7 @@ class SubjectsController{
     }
 
     public function index(){
-        include 'views/subjects.php';
+        include 'views/index.php';
     }
     public function getData() {
         $data['subjects'] = $this->model->getSubjectsFromDB();

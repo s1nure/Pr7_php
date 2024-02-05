@@ -15,7 +15,7 @@ class StudentsController{
     
 
     public function index() {
-        include 'views/default.php';
+        include 'views/index.php';
     }
 
     public function getData() {
