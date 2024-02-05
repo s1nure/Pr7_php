@@ -13,6 +13,7 @@
     ></script>
     <script defer src="https://unpkg.com/vue-router@3"></script>
     <script defer src="/PR8/views/app.js"></script>
+    <link rel="stylesheet" href="/PR8/views/style.css">
     <title>PR10</title>
   </head>
   <body>

@@ -93,8 +93,8 @@ const students = {
 	template: `
   <div>
   <form @submit.prevent="addStudent()">
-            <div class="msg" v-if="message">{{message}}</div>
-            <input type="text" v-model="newItem.name" placeholder="Name" required /><br>
+            <div class="msg input_form_add" v-if="message">{{message}}</div>
+            <input class="input_form_add" type="text" v-model="newItem.name" placeholder="Name" required /><br>
             <select v-model="newItem.group_id" v-if="groups">
                 <option v-for="g in groups" :value="g.id">{{g.name}}</option>
             </select><br>
@@ -217,15 +217,16 @@ const subject = {
 	template: `
   <div>
   <form @submit.prevent="addSubject()">
-            <div class="msg" v-if="message">{{message}}</div>
-            <input type="text" v-model="newItem.name" placeholder="Name" required />
+            <div class="msg input_form_add" v-if="message">{{message}}</div>
+            <input class="input_form_add" type="text" v-model="newItem.name" placeholder="Name" required />
             <input type="submit" value="Добавить">
         </form>
 
         <table v-if="subjects">
             <tr>
             <th>Ім'я</th>
-
+            <th>Оновити</th>
+            <th>Видалити</th>
             </tr>
             
             <tr v-for="s in subjects">
@@ -335,8 +336,8 @@ const progress = {
 	template: `
   <div>
   <form @submit.prevent="addProgress()">
-            <div class="msg" v-if="message">{{message}}</div>
-            <input type="number" name="mark"  v-model="newItem.mark" placeholder="Mark" required /><br>
+            <div class="msg input_form_add" v-if="message">{{message}}</div>
+            <input class="input_form_add" type="number" name="mark"  v-model="newItem.mark" placeholder="Mark" required /><br>
 
             <select v-model="newItem.student_id">
                 <option v-for="s in students" :value="s.id">{{ s.name }}</option>
@@ -353,7 +354,8 @@ const progress = {
                 <th>Имя</th>
                 <th>Предмет</th>
                 <th>Оценка</th>
-                <th>Действие</th>
+                <th>Оновити</th>
+                <th>Видалити</th>
             </tr>
             <tr v-for="p in progress" :key="p.id">
                 <td>
@@ -369,8 +371,11 @@ const progress = {
                 <td><input type="text" v-model="p.mark" placeholder="mark" required /></td>
                 <td>
                     <button type="button" @click="deleteProgress(p)">Delete</button>
-                    <button type="button" @click="updateStudent(p)">Update</button>
                 </td>
+                <td>
+                    <button type="button" @click="updateStudent(p)">Update</button>
+                </td>                 
+
             </tr>
         </table></div>
   `,
